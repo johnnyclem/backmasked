@@ -25,10 +25,8 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-
-  gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'shoulda'
+  gem 'capybara'
 end
 
 gem 'jquery-rails'
