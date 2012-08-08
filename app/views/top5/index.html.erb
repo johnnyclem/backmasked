@@ -1,0 +1,22 @@
+<h1>Top 5 BackMasks</h1>
+ 
+<table>
+  <tr>
+    <th></th>
+    <th>Artist:</th>
+    <th>Song:</th>
+    <th>BackMasked:</th>
+  </tr>
+ 
+<% @mp3s.each do |mp3| %>
+  <% count = 1 %>
+  <tr>
+    <td><%= count %>
+    <td><%= mp3.title %></td>
+    <td><%= mp3.artist %></td>
+    <td><%= mp3.song %></td>
+    <td><%= mp3.count %></td>
+  </tr>
+  <% count += 1 %>
+<% end %>
+</table>
