@@ -5,8 +5,8 @@ Backmasked is a sound reversing and processing web application
 
 sudo apt-get install sox libsox-fmt-mp3
 
-# Reverse a whole song
-sox <input.mp3> <output.mp3> reverse 
+Reverse a whole song
+<code>sox input.mp3 output.mp3 reverse</code>
 
-# Reverse a clip
-sox <input.mp3> <output.mp3> trim <starting_time> <offset> reverse.
+Reverse a clip
+<code>sox input.mp3 output.mp3 trim 0 10 offset reverse</code>
