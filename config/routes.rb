@@ -1,4 +1,10 @@
 Backmasked::Application.routes.draw do
+
+  # Shell Controller
+  resources :shell
+  match 'shell/reverse' => 'shell#reverse'
+  match 'shell/trim' => 'shell#trim'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
