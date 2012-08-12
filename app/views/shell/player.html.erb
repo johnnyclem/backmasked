@@ -1,4 +1,16 @@
-<h1> Mp3 Player </h1>
+<% @sox %>
 
-<%= @sox %>
-<%= audio_tag("#{@new_mp3_audio_path}.mp3", :controls => true) %>
+<div id="unedited" class="player">
+<p>Unedited</p>
+<%= audio_tag("#{@new_mp3_audio_path}.mp3", autoplay: false, controls: true) %>
+</div>
+
+<div id="reversed" class="player">
+<p>Reversed</p>
+<%= audio_tag("#{@new_mp3_audio_path}r.mp3", autoplay: false, controls: true) %>
+</div>
+
+<div class="links">
+<%= link_to "Reverse another MP3", root_path %>
+</div>
+
