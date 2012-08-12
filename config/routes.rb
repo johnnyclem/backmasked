@@ -1,10 +1,23 @@
 Backmasked::Application.routes.draw do
 
-  # Shell Controller
-  resources :shell
-  match 'shell/reverse' => 'shell#reverse'
-  match 'shell/trim' => 'shell#trim'
+  get "shell/index"
 
+  # Shell Controller
+  # resources :shell
+  root  to: 'shell#reverse'
+
+  get 'shell/player' => 'shell#player'
+
+  # post  'shell/upload' => 'shell#player'
+  # get   'shell/upload' => 'shell#upload'
+  
+  post  'shell/reverse/' => 'shell#reverse'
+  get   'shell/reverse' => 'shell#reverse'
+
+  # post  'shell/trim/' => 'shell#trim'
+  # get   'shell/trim' => 'shell#trim'
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

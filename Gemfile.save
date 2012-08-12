@@ -6,9 +6,10 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'file_uploader'
+# gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ruby-mp3info', :require => 'mp3info'
 # gem 'view_mapper'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
