@@ -1,6 +1,12 @@
 # BackMasked
 BackMasked is a sound reversing and processing web application.
 
+## Usage
+To use BackMasked, run the application in a rails server. The homepage
+will show you a simple MP3 upload form. After uploading an MP3, you
+will be presented with two audio players: one for the unedited version of
+the audio and anther for the reversed (backmasked) version.
+
 ## Dependencies
 
 ### sox
@@ -24,3 +30,4 @@ To reverse just a clip, you can use the trim command. The first param for trim i
 starting point in seconds, the second param is an offset. So 0 10 is 10 seconds from 
 the beginning of a file, 30 5 is 5 seconds starting from 30 seconds into the file.
 <code>sox input.mp3 output.mp3 trim 0 10 reverse</code>
+
