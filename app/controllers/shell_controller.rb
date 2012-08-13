@@ -8,15 +8,11 @@ Controller Description
 
 =end
 
-  before_filter :set_paths
+  before_filter :init
 
-  def set_paths
+  def init
     @upload = ''
     @sox = ''
-    @uploaded_file_path = params[:mp3].tempfile.path.to_s if request.post?
-    @new_mp3_audio_path = "/audios#{@uploaded_file_path}"
-    @new_mp3_public_path = "public#{@new_mp3_audio_path}"
-    # @download_path = 'public/downloads'
   end
 
   def index
@@ -24,17 +20,17 @@ Controller Description
   end
 
   def player # move file before playing
-    FileUtils.mv @uploaded_file_path, "#{@new_mp3_public_path}o.mp3" if request.post?
   end
 
   def upload # load a simple upload
-    # render 'shell/upload'
   end
 
   def reverse
     if request.post?
-      FileUtils.mv @uploaded_file_path, "#{@new_mp3_public_path}.mp3"
-      @sox = `sox #{@new_mp3_public_path}.mp3 #{@new_mp3_public_path}r.mp3 reverse`
+      @audio = input_mp3_path = params[:mp3].tempfile.path.to_s if request.post?
+      new_mp3_path = "#{Rails.root}/public/audios#{input_mp3_path}"
+      FileUtils.mv @audio, "#{new_mp3_path}.mp3"
+      @sox = `sox #{new_mp3_path}.mp3 #{new_mp3_path}r.mp3 reverse`
       render 'shell/player'
     else
       render 'shell/upload'

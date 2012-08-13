@@ -2,12 +2,12 @@
 
 <div id="unedited" class="player">
 <p>Unedited</p>
-<%= audio_tag("#{@new_mp3_audio_path}.mp3", autoplay: false, controls: true) %>
+<%= audio_tag("/audios#{@audio}.mp3", autoplay: false, controls: true) %>
 </div>
 
 <div id="reversed" class="player">
 <p>Reversed</p>
-<%= audio_tag("#{@new_mp3_audio_path}r.mp3", autoplay: false, controls: true) %>
+<%= audio_tag("/audios#{@audio}r.mp3", autoplay: false, controls: true) %>
 </div>
 
 <div class="links">
