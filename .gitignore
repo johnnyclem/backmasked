@@ -18,3 +18,6 @@
 
 # Ignore Project files
 *.sublime-*
+
+#Ignore MP3 Files
+public/audios/tmp/*

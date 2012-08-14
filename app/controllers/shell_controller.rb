@@ -15,15 +15,15 @@ Controller Description
     @sox = ''
   end
 
-  def index
+#  def index
     # render 'shell/index'
-  end
+#  end
 
-  def player # move file before playing
-  end
+#  def player # move file before playing
+#  end
 
-  def upload # load a simple upload
-  end
+#  def upload # load a simple upload
+#  end
 
   def reverse
     if request.post?
