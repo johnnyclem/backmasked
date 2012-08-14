@@ -6,7 +6,7 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'file_uploader'
+gem 'therubyracer'
 gem 'ruby-mp3info', :require => 'mp3info'
 # gem 'view_mapper'
 

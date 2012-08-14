@@ -1,6 +1,7 @@
 <%= form_for(@upload) do |f| %>
+
   <label class="upload">
-    <span class="button">Choose an MP3</span>
+    <% # <span class="button">Choose an MP3</span> %>
     <%= f.file_field :mp3 %>
   </label>
   <%= f.submit "UPLOAD", class:"button" %>

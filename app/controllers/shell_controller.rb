@@ -15,22 +15,22 @@ Controller Description
     @sox = ''
   end
 
-  def index
+#  def index
     # render 'shell/index'
-  end
+#  end
 
-  def player # move file before playing
-  end
+#  def player # move file before playing
+#  end
 
-  def upload # load a simple upload
-  end
+#  def upload # load a simple upload
+#  end
 
   def reverse
     if request.post?
       @audio = input_mp3_path = params[:mp3].tempfile.path.to_s if request.post?
       new_mp3_path = "#{Rails.root}/public/audios#{input_mp3_path}"
       FileUtils.mv @audio, "#{new_mp3_path}.mp3"
-      @sox = `sox #{new_mp3_path}.mp3 #{new_mp3_path}r.mp3 reverse`
+      @sox = `sox #{new_mp3_path}.mp3 #{new_mp3_path}r.mp3 speed 2`
       render 'shell/player'
     else
       render 'shell/upload'
