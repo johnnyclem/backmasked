@@ -13,6 +13,7 @@ Controller Description
   def init
     @upload = ''
     @sox = ''
+    @data = Mp3data.new
   end
 
 #  def index
@@ -31,6 +32,17 @@ Controller Description
       new_mp3_path = "#{Rails.root}/public/audios#{input_mp3_path}"
       FileUtils.mv @audio, "#{new_mp3_path}.mp3"
       @sox = `sox #{new_mp3_path}.mp3 #{new_mp3_path}r.mp3 reverse`
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      #Tag Info Code
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+      mp3path = new_mp3_path + ".mp3"
+      Mp3Info.open(mp3path) do |mp3|
+          @data.song = mp3.tag.title   
+          @data.artist = mp3.tag.artist   
+          @data.album = mp3.tag.album
+          @data.save!
+      end
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       render 'shell/player'
     else
       render 'shell/upload'
