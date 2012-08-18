@@ -12,7 +12,6 @@ Controller Description
 
   def init
     @upload = ''
-    @sox = ''
   end
 
 #  def index
@@ -27,14 +26,37 @@ Controller Description
 
   def reverse
     if request.post?
-      @audio = input_mp3_path = params[:mp3].tempfile.path.to_s if request.post?
-      new_mp3_path = "#{Rails.root}/public/audios#{input_mp3_path}"
-      FileUtils.mv @audio, "#{new_mp3_path}.mp3"
-      @sox = `sox #{new_mp3_path}.mp3 #{new_mp3_path}r.mp3 reverse`
+      # Raw Implementation
+      #============================================================
+      @upload = params[:mp3]
+      filename = @upload.original_filename
+      filetype = @upload.content_type
+      @tmp_path = @upload.tempfile.path
+
+      @np = new_path = "#{Rails.root}/public/audios#{@tmp_path}"
+      FileUtils.mv @tmp_path, "#{new_path}.mp3"
+
+      @sox = `sox #{new_path}.mp3 #{new_path}r.mp3 reverse`
+
       render 'shell/player'
+      #============================================================
+      # render 'shell/index'
     else
       render 'shell/upload'
     end
+  end
+
+  def sox
+
+    Sox.command do |sox|
+      @sox = sox
+      sox.input "input1.wav"
+      sox.input "input2", :type => "ogg"
+      sox.output "output", :type => "ogg", :compression => 8
+    end
+
+    render 'shell/index'
+
   end
 
 =begin Trim Function, future feature

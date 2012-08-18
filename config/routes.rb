@@ -7,12 +7,12 @@ Backmasked::Application.routes.draw do
   root  to: 'shell#reverse'
 
   get 'shell/player' => 'shell#player'
-
-  # post  'shell/upload' => 'shell#player'
   # get   'shell/upload' => 'shell#upload'
   
   post  'shell/reverse/' => 'shell#reverse'
   get   'shell/reverse' => 'shell#reverse'
+
+  get   'shell/sox' => 'shell#sox'
 
   # post  'shell/trim/' => 'shell#trim'
   # get   'shell/trim' => 'shell#trim'

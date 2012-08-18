@@ -1,8 +1,6 @@
-<% @sox %>
-
 <div id="unedited" class="container">
 <p>Unedited</p>
-<%= audio_tag("/audios#{@audio}.mp3", autoplay: false, controls: true) %>
+<%= audio_tag("/audios#{@tmp_path}.mp3", autoplay: false, controls: true) %>
 </div>
 
 <div id="reversed" class="container">
@@ -13,7 +11,7 @@ link_to "Download Reversed MP3", "/audios#{@audio}r.mp3",
   title: "Right Click and Save As..." 
 %></p>
 
-<%= audio_tag("/audios#{@audio}r.mp3", autoplay: false, controls: true) %>
+<%= audio_tag("/audios#{@tmp_path}r.mp3", autoplay: false, controls: true) %>
 </div>
 
 

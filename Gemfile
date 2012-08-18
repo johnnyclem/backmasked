@@ -6,7 +6,7 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'therubyracer'
+gem 'rsox-command'
 gem 'ruby-mp3info', :require => 'mp3info'
 # gem 'view_mapper'
 
@@ -26,8 +26,8 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'capybara'
+  # gem 'factory_girl_rails'
+  # gem 'capybara'
 end
 
 gem 'jquery-rails'
