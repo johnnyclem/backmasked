@@ -16,7 +16,6 @@ Backmasked::Application.routes.draw do
 
   # post  'shell/trim/' => 'shell#trim'
   # get   'shell/trim' => 'shell#trim'
-
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
