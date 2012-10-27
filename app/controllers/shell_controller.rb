@@ -29,7 +29,7 @@ Controller Description
     if request.post?
       @audio = input_mp3_path = params[:mp3].tempfile.path.to_s if request.post?
       new_mp3_path = "#{Rails.root}/public/audios#{input_mp3_path}"
-      FileUtils.mv @audio, "#{new_mp3_path}.mp3"
+      FileUtils.cp @audio, "#{new_mp3_path}.mp3"
       @sox = `sox #{new_mp3_path}.mp3 #{new_mp3_path}r.mp3 reverse`
       render 'shell/player'
     else

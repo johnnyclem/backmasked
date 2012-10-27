@@ -4,14 +4,10 @@ Backmasked::Application.routes.draw do
 
   # Shell Controller
   # resources :shell
-  root  to: 'shell#reverse'
-  match "/" => "shell#reverse", 
-   :constraints => { :domain => "backmasked.com" }
-  
-  match "/" => "shell#chupload", 
-   :constraints => { :domain => "chipmunkify.com" } 
+match "/" => "portfolio#show", 
+  :constraints => { :domain => "somedomain.com" },  
+ root  to: 
 
- 
   get 'shell/player' => 'shell#player'
 
   # post  'shell/upload' => 'shell#player'
